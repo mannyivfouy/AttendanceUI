@@ -1,0 +1,43 @@
+<div class="container vh-100 d-flex justify-content-center align-items-center">
+  <div class="card shadow-lg border-0" style="width: 380px">
+    <div class="card-body p-4">
+      <h3 class="text-center mb-4 fw-bold">Login</h3>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label class="form-label">Username</label>
+          <input
+            type="username"
+            class="form-control"
+            formControlName="username"
+            placeholder="Enter your username"
+            [class.is-invalid]="username?.touched && username?.invalid"
+          />
+          <div class="invalid-feedback">Username is required</div>
+        </div>
+
+        <!-- Password -->
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            formControlName="password"
+            placeholder="Enter your password"
+            [class.is-invalid]="password?.touched && password?.invalid"
+          />
+          <div class="invalid-feedback">Password is required</div>
+        </div>
+
+        <!-- Login Button -->
+        <button
+          type="submit"
+          class="btn btn-primary w-100"
+          [disabled]="loginForm.invalid || loading"
+        >
+          {{ loading ? 'Logging in...' : 'Login' }}
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
