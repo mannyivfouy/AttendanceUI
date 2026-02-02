@@ -8,7 +8,6 @@ export const routes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full',
   },
-  { path: '**', redirectTo: 'login' },
   {
     path: 'login',
     component: Login,
@@ -16,5 +15,6 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     component: Dashboard
-  }
+  },
+  { path: '**', redirectTo: 'login' }
 ];

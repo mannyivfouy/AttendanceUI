@@ -3,6 +3,12 @@
     <div class="card-body p-4">
       <h3 class="text-center mb-4 fw-bold">Login</h3>
 
+      @if (errorMessage) {
+        <div class="alert alert-danger">
+          {{ errorMessage }}
+        </div>
+      }
+
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="mb-3">
           <label class="form-label">Username</label>
@@ -30,11 +36,7 @@
         </div>
 
         <!-- Login Button -->
-        <button
-          type="submit"
-          class="btn btn-primary w-100"
-          [disabled]="loginForm.invalid || loading"
-        >
+        <button type="submit" class="btn btn-primary w-100 mt-3">
           {{ loading ? 'Logging in...' : 'Login' }}
         </button>
       </form>
