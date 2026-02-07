@@ -9,11 +9,13 @@ import {
 import { Auth } from '../../../core/services/auth';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faLock, faUser } from '@fortawesome/pro-solid-svg-icons';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, FontAwesomeModule],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
@@ -22,6 +24,9 @@ export class Login implements OnInit {
   loading = false;
   errorMessage = '';
   submitted = false;
+
+  user = faUser;
+  passowrd = faLock;  
 
   constructor(
     private fb: FormBuilder,
@@ -33,7 +38,7 @@ export class Login implements OnInit {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
-    });    
+    });
   }
 
   get username() {

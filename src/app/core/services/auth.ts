@@ -6,12 +6,13 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
+
 export class Auth {
   private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 
   login(data: { username: string; password: string }): Observable<any> {
-    return this.http.post(`${this.apiUrl}/api/login`, data);
-  }
+    return this.http.post(`${this.apiUrl}/api/login`, data);    
+  }  
 }
